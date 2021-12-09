@@ -8,14 +8,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FormComponent = void 0;
 const core_1 = require("@angular/core");
+const Submission_1 = require("./Submission");
 let FormComponent = class FormComponent {
-    constructor() { }
+    constructor() {
+        this.genres = ['Action', 'Adventure', 'RPG', 'Arcade', 'Horror', 'Sports', 'Strategy'];
+        this.submissions = [];
+        this.submission = new Submission_1.Submission('', '', '', '', false);
+        this.formVals = '';
+    }
     ngOnInit() {
+    }
+    onSubmit(isValid) {
+        if (isValid) {
+            let newSubmission = Object.assign({}, this.submission);
+            this.formVals = JSON.stringify(this.submission);
+            this.submissions.push(newSubmission);
+            console.log(this.submissions);
+        }
+        else {
+            this.formVals = 'Invalid Entry';
+        }
     }
 };
 FormComponent = __decorate([
     (0, core_1.Component)({
-        selector: 'app-form',
+        selector: 'form',
         templateUrl: './form.component.html',
         styleUrls: ['./form.component.scss']
     })

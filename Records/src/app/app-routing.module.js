@@ -9,7 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppRoutingModule = void 0;
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
-const routes = [];
+const form_component_1 = require("./form/form.component");
+const routes = [
+    { path: 'form', component: form_component_1.FormComponent }
+];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = __decorate([

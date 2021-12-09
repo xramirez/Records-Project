@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const core_1 = require("@angular/core");
+const forms_1 = require("@angular/forms");
 const platform_browser_1 = require("@angular/platform-browser");
 const app_routing_module_1 = require("./app-routing.module");
 const app_component_1 = require("./app.component");
@@ -22,7 +23,8 @@ AppModule = __decorate([
         ],
         imports: [
             platform_browser_1.BrowserModule,
-            app_routing_module_1.AppRoutingModule
+            app_routing_module_1.AppRoutingModule,
+            forms_1.FormsModule
         ],
         providers: [],
         bootstrap: [app_component_1.AppComponent]

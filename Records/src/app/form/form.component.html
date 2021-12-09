@@ -1,1 +1,94 @@
-<p>form works!</p>
+<h1 class="text-center">Favorite Video Game Genre Submission</h1>
+
+<form class="row g-3 mt-2 submitFrm justify-content-center align-items-center" #submitFrm="ngForm" (ngSubmit)="onSubmit(submitFrm.valid)">
+    <div class="col-md-4">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" name="firstName" class="form-control" id="firstName" value=""
+            [(ngModel)]="submission.firstName" required>
+    </div>
+    <div class="col-md-4">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" name="lastName" class="form-control" id="lastName" value="" [(ngModel)]="submission.lastName"
+            required>
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="email" value="" [(ngModel)]="submission.email"
+            required>
+    </div>
+    <div class="col-md-6">
+        <label for="state" class="form-label">State:</label>
+        <select name="state" id="state" value="" class="form-select" [(ngModel)]="submission.state" required>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label for="favGenre" class="form-label">Pick your favorite Video Game Genre!</label>
+        <select id="favGenre" name="favGenre" value="" class="form-select"[(ngModel)]="submission.favGenre" required>
+            <option *ngFor="let genre of genres" value="{{genre}}">{{genre}}</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="over18" value="" id="over18" [(ngModel)]="submission.over18">
+          <label class="form-check-label" for="over18">
+            Are you over 18?
+          </label>
+        </div>
+      </div>
+    <div class="col-md-12">
+        <button class="btn btn-primary" type="submit" [disabled]="submitFrm.invalid">Submit form</button>
+    </div>
+</form>
+
+<div><p>{{statistics()}}<br>{{topGenre()}}<br>{{topAdultGenre()}}<br>{{topChildGenre()}}</p></div>
