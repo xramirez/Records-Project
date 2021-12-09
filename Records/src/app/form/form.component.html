@@ -78,7 +78,7 @@
             <option *ngFor="let genre of genres" value="{{genre}}">{{genre}}</option>
         </select>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-7">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" name="over18" value="" id="over18" [(ngModel)]="submission.over18">
           <label class="form-check-label" for="over18">
@@ -86,7 +86,7 @@
           </label>
         </div>
       </div>
-    <div class="col-md-12">
+    <div class="col-md-3">
         <button class="btn btn-primary" type="submit" [disabled]="submitFrm.invalid">Submit form</button>
     </div>
 </form>

@@ -31,11 +31,12 @@ export class FormComponent implements OnInit {
 
   statistics(): string {
     return `
-    Currently reading from ${this.submissions.length} Submissions:`
+    Currently reading from ${this.submissions.length} Submission${this.submissions.length == 1 ? '' : 's'}:`
   }
 
   topGenre() {
     if (this.submissions.length > 0) {
+      //console.log('new iteration');
       //console.log("heyo");
       let sortedSubmissions = this.submissions.sort((a, b) => (a.favGenre > b.favGenre) ? 1 : -1)
       let maxCount = 0;
@@ -43,14 +44,16 @@ export class FormComponent implements OnInit {
       let tempCount = 0;
       let tempGenre = sortedSubmissions[0].favGenre;
       for (let i = 0; i < sortedSubmissions.length; i++) {
+        //console.log(sortedSubmissions[i].favGenre)
         if (sortedSubmissions[i].favGenre == tempGenre) {
           tempCount++;
           if (tempCount > maxCount) {
+            //console.log(tempCount);
             maxCount = tempCount;
             maxGenre = sortedSubmissions[i].favGenre
           }
         }
-        else {
+        else if(sortedSubmissions[i].favGenre != tempGenre){
           tempGenre = sortedSubmissions[i].favGenre
           tempCount = 1;
         }
